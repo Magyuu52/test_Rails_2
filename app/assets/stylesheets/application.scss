@@ -24,3 +24,24 @@
     z-index: 50;
     opacity: 0.8;
 }
+
+.body-container {
+    position: relative;
+    max-width: 1150px;
+    padding-top: 120px;
+    padding-left: 80px;
+    padding-right: 80px;
+    height: 1200px;
+    margin:0 auto;
+}
+
+.head-topic {
+    font-weight: bolder;
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+.required-item {
+    margin-left: 1px;
+    color: red;
+}
