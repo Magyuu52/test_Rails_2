@@ -1,3 +1,40 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.top-body {
+    background-image: url('Loving-the-family-road-trip-406218.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.body-container {
+    position: relative;
+    max-width: 1150px;
+    padding-top: 120px;
+    padding-left: 80px;
+    padding-right: 80px;
+    height: 1200px;
+    margin:0 auto;
+}
+
+.body-container h1 {
+    font-weight: bold;
+    text-align: center;
+    line-height: 100px;
+    color: white;
+    font-size: 80px;
+    opacity: 0.9;
+}
+
+.search-content {
+    padding: 20px;
+    background-color: rgba(gray, 0.6);
+    position: relative;
+    margin-top: 180px;
+}
+
+.search-content p {
+    font-weight: bolder;
+    color: white;
+    font-size: 25px;
+}
