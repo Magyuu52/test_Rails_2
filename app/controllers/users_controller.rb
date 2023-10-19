@@ -1,7 +1,4 @@
 class UsersController < ApplicationController
-  def index
-    
-  end
 
   def new
     @user = User.new
@@ -10,6 +7,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params.require(:user).permit(:name, :email, :password, :password_confim))
     if @user.save
+      session[:user_id] = @user.id
       redirect_to("/")
     else
       render "new"
@@ -17,7 +15,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+  end
+
+  def about
   end
 
   def edit

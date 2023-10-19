@@ -25,12 +25,22 @@
     opacity: 0.8;
 }
 
-.body-container {
+.form-container {
     position: relative;
     max-width: 1150px;
     padding-top: 120px;
     padding-left: 80px;
     padding-right: 80px;
+    height: 1200px;
+    margin:0 auto;
+}
+
+.body-container {
+    position: relative;
+    max-width: 1150px;
+    padding-top: 120px;
+    padding-left: 40px;
+    padding-right: 40px;
     height: 1200px;
     margin:0 auto;
 }

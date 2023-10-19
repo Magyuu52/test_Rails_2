@@ -1,1 +1,16 @@
-<h2 class="head-topic">アカウント設定</h2>
+<div class="body-container">
+    <h2 class="head-topic">アカウント設定</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <%= link_to "アカウント設定", '/users/account',class:"btn btn-outline-success" %></br>
+                <%= link_to "プロフィール", '/users/about',class:"btn btn-outline-success" %>
+            </div>
+            <div class="col-sm-6">
+                <h3>アカウント</h3>
+                <p>メールアドレス</p><%= @current_user.email %>
+                <p>パスワード</p><%= @current_user.password %>
+            </div>
+        </div>
+    </div>
+</div>
