@@ -14,10 +14,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
-  end
-
-  def about
+  def profile
   end
 
   def edit
@@ -27,5 +24,8 @@ class UsersController < ApplicationController
   end
 
   def destroy
+  end
+
+  def login_form
   end
 end
