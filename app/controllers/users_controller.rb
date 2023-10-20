@@ -23,8 +23,7 @@ class UsersController < ApplicationController
   def update
   end
 
-  def destroy
-  end
+  
 
   def login_form
   end
