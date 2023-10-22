@@ -1,0 +1,17 @@
+<div class="form-container">
+    <h2 class="head-topic">アカウント編集</h2>
+
+    <%= render "shared/error",obj: @current_user%>
+
+    <%= form_with model: @user do |f| %>
+        <div class="mb-3">
+            <%= f.label :name ,"ユーザー名" ,class:"mb-3" %><span class="required-item">*</span>
+            <%= f.text_field :name, class:"form-control", placeholder:"ユーザー名を入力" %>
+        </div>
+        <div class="mb-3">
+            <%= f.label :introduction ,"ユーザー名" ,class:"mb-3" %><span class="required-item">*</span>
+            <%= f.text_area :introduction, class:"form-control pb-5", placeholder:"自己紹介を入力"%>
+        </div>
+            <%= f.submit "新規ユーザーを作成する", class:"btn btn-outline-primary w-100 py-3 mt-3 fw-bolder"%>
+    <% end %>
+</div>
