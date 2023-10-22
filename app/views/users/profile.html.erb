@@ -1,13 +1,17 @@
 <div class="account-container">
     <h2 class="head-topic">アカウント設定</h2>
     <div class="account-wrapper">
-        <div class="row">
+        <div class="d-flex">
             <div class="col-lg-3 d-grid  align-items-center flex-fill">
                 <%= link_to "アカウント", :users_account,class:"btn btn-outline-success py-3 px-5" %></br>
                 <%= link_to "プロフィール", :users_profile,class:"btn btn-outline-success py-3 px-5" %>
             </div>
             <div class="col-lg-8 ms-5 flex-fill">
                 <h3 class="account-header border-bottom border-dark border-2">アカウント</h3>
+                <div class="d-flex mt-4 align-items-center">
+                    <p class="w-25">アイコン画像</p>
+                    <p class="w-25"><%= image_tag @current_user.image_name, class:"user-icon" %></p>
+                </div>
                 <div class="d-flex mt-4">
                     <p class="w-25">名前</p>
                     <p class="w-25"><%= @current_user.name %></p>
