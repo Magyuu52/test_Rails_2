@@ -31,4 +31,12 @@ class UsersController < ApplicationController
 
   def login_form
   end
+
+  def login
+  end
+
+  def logout
+    session[:user_id] = nil
+    redirect_to :login
+  end
 end

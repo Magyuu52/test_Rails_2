@@ -12,7 +12,7 @@
                 <div class="d-flex mt-4 align-items-center">
                     <p class="w-25">アイコン画像</p>
                     <% if @current_user.image_name.attached? %>
-                        <%= image_tag(rails_blob_path(@user.image),:size => "50x50") %>
+                        <%= image_tag(rails_blob_path(@current_user.image_name),:size => "50x50") %>
                     <% else %>
                         <%= image_tag("default_user.png", :size => "50x50") %>
                     <% end %>
