@@ -3,7 +3,7 @@
 
     <%= render "shared/error",obj: @user%>
 
-    <%= form_with model: @user do |f| %>
+    <%= form_with model: @user, url: users_create_path do |f| %> 
         <div class="mb-3">
             <%= f.label :name ,"ユーザー名" ,class:"mb-3" %><span class="required-item">*</span>
             <%= f.text_field :name, class:"form-control", placeholder:"ユーザー名を入力" %>

@@ -6,7 +6,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params.require(:user).permit(:name, :email, :password, :password_confim, :image_name))
-    @user.image_name ='default-avatar-7a6cbfd7993e89f24bfc888f4a035a83c6f1428b8bdc47eed9095f2799a40153.png'
     if @user.save
       session[:user_id] = @user.id
       redirect_to ('/')
@@ -22,6 +21,12 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = User.find_by(id: params[:id])
+    if @current_user.update(params.permit(:name, :image_name, :introduction))
+      redirect_to :users_account
+    else
+      render "edit"
+    end
   end
 
   def login_form

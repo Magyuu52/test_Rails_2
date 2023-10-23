@@ -3,15 +3,25 @@
 
     <%= render "shared/error",obj: @current_user%>
 
-    <%= form_with model: @user do |f| %>
+    <%= form_with model: @user, url: users_account_update_path do |f| %>
+        <div class="mb-3 d-flex align-items-center">
+            <%= f.label :name ,"アイコン画像" ,class:"me-3" %>
+                <% if @current_user.image_name.attached? %>
+                    <%= image_tag(rails_blob_path(@current_user.image_name),:size => "60x60") %>
+                <% else %>
+                    <%= image_tag("default_user.png", :size => "60x60") %>
+                <% end %>
+        </div>
+        <%= f.file_field :image_name, id:"item-image", class:"hidden mb-3" %>
         <div class="mb-3">
             <%= f.label :name ,"ユーザー名" ,class:"mb-3" %><span class="required-item">*</span>
             <%= f.text_field :name, class:"form-control", placeholder:"ユーザー名を入力" %>
         </div>
         <div class="mb-3">
-            <%= f.label :introduction ,"ユーザー名" ,class:"mb-3" %><span class="required-item">*</span>
+            <%= f.label :introduction ,"自己紹介" ,class:"mb-3" %>
             <%= f.text_area :introduction, class:"form-control pb-5", placeholder:"自己紹介を入力"%>
         </div>
-            <%= f.submit "新規ユーザーを作成する", class:"btn btn-outline-primary w-100 py-3 mt-3 fw-bolder"%>
+            <%= f.submit  "保存", class:"btn btn-outline-primary w-25 py-2 mt-3 fw-bolder"%>
+            <%= link_to "キャンセル", :users_account , class:"btn btn-outline-dark w-25 py-2 mt-3 fw-bolder" %>
     <% end %>
 </div>
