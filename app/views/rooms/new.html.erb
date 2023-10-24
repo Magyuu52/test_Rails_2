@@ -1,0 +1,29 @@
+<div class="form-container">
+    <h2 class="head-topic">新規登録</h2>
+
+    <%= render "shared/error",obj: @room%>
+
+    <%= form_with model: @user, url: users_create_path do |f| %> 
+        <div class="mb-3">
+            <%= f.label :name ,"ユーザー名" ,class:"mb-3" %><span class="required-item">*</span>
+            <%= f.text_field :name, class:"form-control", placeholder:"ユーザー名を入力" %>
+        </div>
+        <div class="mb-3">
+            <%= f.label :detail ,"施設詳細" ,class:"mb-3" %><span class="required-item">*</span>
+            <%= f.text_area :detail, class:"form-control", placeholder:"メールアドレスを入力（name@example.com）" %>
+        </div>
+        <div class="mb-3">
+            <%= f.label :price ,"料金" ,class:"mb-3" %><span class="required-item">*</span>
+            <%= f.text_field :price, class:"form-control", placeholder:"パスワードを入力" %>
+        </div>
+        <div class="mb-3">
+            <%= f.label :adress ,"住所" ,class:"mb-3" %><span class="required-item">*</span>
+            <%= f.text_field :adress, class:"form-control", placeholder:"確認用パスワードを入力" %>
+        </div>
+        <div class="mb-4">
+            <%= f.label :image_room ,"施設画像" ,class:"mb-3" %><br>
+            <%= f.file_field :image_room, id:"item-image", class:"hidden mb-3"%>
+        </div>
+            <%= f.submit "新規施設を作成する", class:"btn btn-outline-primary w-100 py-3 mt-3 fw-bolder"%>
+    <% end %>
+</div>

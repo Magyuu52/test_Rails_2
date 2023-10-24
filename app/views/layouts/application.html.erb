@@ -35,6 +35,7 @@
             <%= @current_user.name %>
           </button>
           <div class="dropdown-menu" aria-labelledby="btnOpenMenu">
+            <%= link_to "施設の新規登録", :rooms_new, class:"dropdown-item" %>
             <%= link_to "登録施設一覧", :rooms_index, class:"dropdown-item" %>
             <%= link_to "アカウント設定", :users_account, class:"dropdown-item" %>
             <%= link_to "ログアウト", logout_path, class:"dropdown-item",method: :post %>
