@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
   def index
+    @rooms = Room.all
   end
 
   def new
@@ -19,5 +20,5 @@ class RoomsController < ApplicationController
 
   def destroy
   end
-  
+
 end
