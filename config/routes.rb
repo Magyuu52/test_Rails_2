@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
   get 'reservations/index'
 
-  get 'rooms/index'
+  get 'rooms/index' => 'rooms#index'
+  get 'rooms/new' => 'rooms#new'
+  post 'rooms/create' => 'rooms#create'
+  get 'rooms/:id' => 'rooms#show'
+  get 'rooms/:id/edit' => 'rooms#edit'
+  post 'rooms/:id/update' => 'rooms#update'
+  post 'rooms/:id/destroy' => 'rooms#destroy'
 
   get '/' => "home#top"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
