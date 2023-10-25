@@ -8,6 +8,12 @@ class RoomsController < ApplicationController
   end
 
   def create
+    @room = Room.new(params.require(:room).permit(:name, :detail, :price, :adress, :image_room))
+    if @room.save
+      redirect_to ('/')
+    else
+      render "new"
+    end
   end
 
   def show

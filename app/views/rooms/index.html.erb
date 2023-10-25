@@ -14,6 +14,13 @@
         <tbody>
         <% @rooms.each do |room| %>
             <tr>
+                <td>
+                    <% if room.image_room.attached? %>
+                        <%= image_tag(rails_blob_path(room.image_room),:size => "140x80") %>
+                    <% else %>
+                        <%= image_tag("default_room.png", :size => "35x35") %>
+                    <% end %>
+                </td>
                 <td><%= room.name %></td>
                 <td><%= room.detail %></td>
                 <td><%= room.price %></td>

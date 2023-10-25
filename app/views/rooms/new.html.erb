@@ -3,22 +3,22 @@
 
     <%= render "shared/error",obj: @room%>
 
-    <%= form_with model: @user, url: users_create_path do |f| %> 
+    <%= form_with model: @room, url: rooms_create_path do |f| %> 
         <div class="mb-3">
-            <%= f.label :name ,"ユーザー名" ,class:"mb-3" %><span class="required-item">*</span>
-            <%= f.text_field :name, class:"form-control", placeholder:"ユーザー名を入力" %>
+            <%= f.label :name ,"施設名" ,class:"mb-3" %><span class="required-item">*</span>
+            <%= f.text_field :name, class:"form-control", placeholder:"施設名を入力" %>
         </div>
         <div class="mb-3">
             <%= f.label :detail ,"施設詳細" ,class:"mb-3" %><span class="required-item">*</span>
-            <%= f.text_area :detail, class:"form-control", placeholder:"メールアドレスを入力（name@example.com）" %>
+            <%= f.text_area :detail, class:"form-control", placeholder:"施設詳細を入力" %>
         </div>
         <div class="mb-3">
             <%= f.label :price ,"料金" ,class:"mb-3" %><span class="required-item">*</span>
-            <%= f.text_field :price, class:"form-control", placeholder:"パスワードを入力" %>
+            <%= f.text_field :price, class:"form-control", placeholder:"料金を入力" %>
         </div>
         <div class="mb-3">
             <%= f.label :adress ,"住所" ,class:"mb-3" %><span class="required-item">*</span>
-            <%= f.text_field :adress, class:"form-control", placeholder:"確認用パスワードを入力" %>
+            <%= f.text_field :adress, class:"form-control", placeholder:"住所を入力" %>
         </div>
         <div class="mb-4">
             <%= f.label :image_room ,"施設画像" ,class:"mb-3" %><br>
