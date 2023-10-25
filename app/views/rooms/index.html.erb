@@ -32,9 +32,7 @@
                     </button>
                     <div class="dropdown-menu" aria-labelledby="btnOpenMenu">
                         <%= link_to "編集", [:edit, room], class:"dropdown-item" %>
-                        <button class="dropdown-item" type="button">メニュー1</a>
-                        <button class="dropdown-item" type="button">メニュー2</a>
-                        <button class="dropdown-item" type="button">メニュー3</a>
+                        <%= link_to "削除", room, method: :delete, data: { confirm: "本当に削除しますか？" }, class: "dropdown-item text-danger" %>
                     </div>
                 </div>
                 </td>
