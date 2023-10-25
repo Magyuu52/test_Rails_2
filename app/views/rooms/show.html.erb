@@ -1,15 +1,17 @@
 <div class="body-container">
-    <h2 class="head-topic">登録施設一覧</h2>
+    <h2 class="head-topic">施設情報</h2>
     <div class="d-flex ">
-    <% if @room.image_room.attached? %>
-        <%= image_tag(rails_blob_path(@room.image_room),:size => "500x300") %>
-    <% else %>
-        <%= image_tag("default_room.png", :size => "500x300") %>
-    <% end %>
-    <div class="bg-light align-self-baseline">
-        <%= @room.name %>
-        <%= @room.detail %>
-        <%= @room.price %>
-    </div>
+        <% if @room.image_room.attached? %>
+            <%= image_tag(rails_blob_path(@room.image_room),:size => "500x300") %>
+        <% else %>
+            <%= image_tag("default_room.png", :size => "500x300") %>
+        <% end %>
+        <div class="bg-light align-self-baseline px-3 py-3">
+            <div class="d-flex justify-content-between">
+                <p class="room-name"><%= @room.name %></p>
+                <p class="room-price">¥<%= @room.price %></p>
+            </div>
+            <%= @room.detail %>
+        </div>
     </div>
 </div>
