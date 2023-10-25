@@ -21,7 +21,7 @@
                         <%= image_tag("default_room.png", :size => "35x35") %>
                     <% end %>
                 </td>
-                <td><%= room.name %></td>
+                <td><%= link_to "#{room.name}", room %></td>
                 <td><%= room.detail %></td>
                 <td><%= room.price %></td>
                 <td><%= room.created_at %></td>

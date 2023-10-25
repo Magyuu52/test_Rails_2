@@ -1,0 +1,15 @@
+<div class="body-container">
+    <h2 class="head-topic">登録施設一覧</h2>
+    <div class="d-flex ">
+    <% if @room.image_room.attached? %>
+        <%= image_tag(rails_blob_path(@room.image_room),:size => "500x300") %>
+    <% else %>
+        <%= image_tag("default_room.png", :size => "500x300") %>
+    <% end %>
+    <div class="bg-light align-self-baseline">
+        <%= @room.name %>
+        <%= @room.detail %>
+        <%= @room.price %>
+    </div>
+    </div>
+</div>
