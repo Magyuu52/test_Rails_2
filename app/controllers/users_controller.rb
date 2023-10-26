@@ -38,7 +38,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to ('/')
     else
-      render :login
+      render :login_form
     end
   end
 
