@@ -1,6 +1,8 @@
 <div class="form-container">
     <h2 class="head-topic">施設情報の編集</h2>
 
+    <%= render "shared/error",obj: @room%>
+
     <%= form_with model: @room do |f| %> 
         <div class="mb-3">
             <%= f.label :name ,"施設名" ,class:"mb-3" %><span class="required-item">*</span>

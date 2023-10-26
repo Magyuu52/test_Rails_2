@@ -18,10 +18,10 @@
                     <% if room.image_room.attached? %>
                         <%= image_tag(rails_blob_path(room.image_room),:size => "140x80") %>
                     <% else %>
-                        <%= image_tag("default_room.png", :size => "35x35") %>
+                        <%= image_tag("default_room.png", :size => "140x80") %>
                     <% end %>
                 </td>
-                <td><%= link_to "#{room.name}", room %></td>
+                <td><%= link_to "#{room.name}", room,class:'link-offset-2 link-underline link-underline-opacity-0' %></td>
                 <td><%= room.detail %></td>
                 <td><%= room.price %></td>
                 <td><%= room.created_at %></td>
