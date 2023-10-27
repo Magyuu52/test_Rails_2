@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get '/' => 'home#top'
-  get 'search' => 'rooms/search'
+  get 'search' => 'rooms#search'
 
   get 'reservations/index'
 

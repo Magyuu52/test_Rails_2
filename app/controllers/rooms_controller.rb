@@ -40,4 +40,6 @@ class RoomsController < ApplicationController
      redirect_to :rooms_index
   end
 
+  
+
 end
