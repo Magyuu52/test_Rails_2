@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get '/' => 'home#top'
+  get 'search' => 'rooms/search'
+
   get 'reservations/index'
 
   get 'rooms/index' => 'rooms#index'
@@ -6,15 +9,14 @@ Rails.application.routes.draw do
   post 'rooms/create' => 'rooms#create'
   resources :rooms, only: [:show, :edit, :update, :destroy]
 
-  get '/' => "home#top"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  post "users/account/update" => "users#update"
+  post 'users/account/update' => 'users#update'
   get 'users/account/edit' => 'users#edit'
   get 'login' => 'users#login_form'
   post 'login' => 'users#login'
   post 'logout' => 'users#logout'
   get 'users/account' => 'users#account'
   get 'users/profile' => 'users#profile'
-  post "users/create" => "users#create"
-  get "users/signup" => "users#new"
+  post 'users/create' => "users#create"
+  get 'users/signup' => 'users#new'
 end

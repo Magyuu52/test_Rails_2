@@ -11,7 +11,7 @@ class RoomsController < ApplicationController
     @room = Room.new(params.require(:room).permit(:name, :detail, :price, :adress, :image_room))
     @room.user_id = @current_user.id
     if @room.save
-      redirect_to ('/')
+      redirect_to :rooms_index
     else
       render "new"
     end
