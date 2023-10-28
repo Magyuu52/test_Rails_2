@@ -2,11 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .room-name {
-    font-size: 40px;
+    font-size: 27px;
     color: lightseagreen;
 }
 
 .room-price {
-    font-size: 40px;
+    font-size: 30px;
     color: lightsalmon;
+}
+
+.room-adress {
+    font-size: 15px;
+    color: gray;
+    margin-top: 10px;
+}
+
+.room-detail {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
 }

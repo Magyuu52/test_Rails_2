@@ -1,8 +1,22 @@
 <div class="body-container">
     <h2 class="head-topic">検索結果</h2>
+    <div class="row ">
         <% @rooms.each do |room| %>
-            <%= room.name %>
-            <%= room.detail %>
-            <%= room.adress %>
+            <div class="col-sm-4 mt-4">
+                <div class="bg-light rounded h-100">
+                    <% if room.image_room.attached? %>
+                        <%= image_tag(rails_blob_path(room.image_room), class:"img-fluid rounded") %>
+                    <% else %>
+                        <%= image_tag("default_room.png", class:"img-fluid rounded") %>
+                    <% end %>
+                    <div class="px-3">
+                        <div class="room-name mt-2"><%= room.name %></div>
+                        <div class="room-adress"><%= room.adress %></div>
+                        <p class="room-detail"><%= room.detail %></p>
+                        <p class="room-price">¥<%= room.price %></p>
+                    </div>
+                </div>
+            </div>
         <% end %>
+    </div>
 </div>
