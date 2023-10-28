@@ -43,6 +43,7 @@ class RoomsController < ApplicationController
 
   def search
     @rooms = Room.where("adress like ?", "%#{params[:keyword]}%")
+    @rooms_count = Room.where(@room_id).count
   end
 
 end
