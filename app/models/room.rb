@@ -6,4 +6,9 @@ class Room < ApplicationRecord
     belongs_to :user
     
     has_one_attached :image_room
+
+      def self.search(search)
+        return Room.all unless search
+        Room.where('adress LIKE(?)', "%#{search}%")
+      end
 end

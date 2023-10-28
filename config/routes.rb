@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   get '/' => 'home#top'
-  get 'search' => 'rooms#search'
 
   get 'reservations/index'
 
+  get 'rooms/search' => 'rooms#search'
   get 'rooms/index' => 'rooms#index'
   get 'rooms/new' => 'rooms#new'
   post 'rooms/create' => 'rooms#create'

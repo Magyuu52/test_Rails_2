@@ -1,0 +1,8 @@
+<div class="body-container">
+    <h2 class="head-topic">検索結果</h2>
+        <% @rooms.each do |room| %>
+            <%= room.name %>
+            <%= room.detail %>
+            <%= room.adress %>
+        <% end %>
+</div>
