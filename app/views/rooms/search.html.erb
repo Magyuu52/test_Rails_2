@@ -1,12 +1,20 @@
-<div class="body-container">
-    <div class="d-flex justify-content-between align-items-center">
-    <h2 class="head-topic">検索結果</h2>
-    <p class="fs-2 fw-bolder"><%= @rooms_count %>件が見つかりました</p>
+<div class="search-container">
+    <div class="input-group mb-5">
+        <%= form_with url: rooms_search_path, local: true, method: :get, class: "search-form d-flex w-100" do |f|%>
+            <%= f.text_field :keyword, placeholder:"エリアを入力", class:"form-control py-3" %>
+            <%= button_tag type: "submit", class: "btn btn-success w-25" do %>
+                <i class="fas fa-search me-1"></i><span>検索</span>
+            <% end %>
+        <% end %>
     </div>
-    <div class="row ">
-        <% @rooms.each do |room| %>
+    <div class="d-flex justify-content-between align-items-center">
+        <h2 class="head-topic">検索結果</h2>
+        <p class="fs-3 fw-bolder"><%= @rooms_count %>件が見つかりました</p>
+    </div>
+    <div class="row">
+        <% @searched_rooms.each do |room| %>
             <div class="col-sm-4 mt-4">
-                <div class="bg-light rounded h-100">
+                <div class="bg-light rounded h-100 pb-3">
                     <% if room.image_room.attached? %>
                         <%= image_tag(rails_blob_path(room.image_room), class:"img-fluid rounded") %>
                     <% else %>
@@ -16,7 +24,10 @@
                         <div class="room-name mt-2"><%= room.name %></div>
                         <div class="room-adress"><%= room.adress %></div>
                         <p class="room-detail"><%= room.detail %></p>
-                        <p class="room-price">¥<%= room.price %></p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="room-price">¥<%= room.price %></div>
+                            <%= link_to "詳細はこちら", room, class:'link-offset-2 text-decoration-none text-white bg-show p-3 rounded fw-bolder'%>
+                        </div>
                     </div>
                 </div>
             </div>

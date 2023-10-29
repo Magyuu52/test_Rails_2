@@ -3,12 +3,12 @@
     <table class="table align-middle">
         <thead class="">
             <tr>
-                <th>画像</th>
-                <th>施設名</th>
-                <th>紹介文</th>
-                <th>料金</th>
-                <th>作成日</th>
-                <th></th>
+                <th style="width: 20%">画像</th>
+                <th style="width: 20%">施設名</th>
+                <th style="width: 40%">紹介文</th>
+                <th style="width: 5%">料金</th>
+                <th style="width: 10%">作成日</th>
+                <th style="width: 5%"></th>
             </tr>
         </thead>
         <tbody>
@@ -16,14 +16,14 @@
             <tr>
                 <td>
                     <% if room.image_room.attached? %>
-                        <%= image_tag(rails_blob_path(room.image_room),:size => "140x80") %>
+                        <%= image_tag(rails_blob_path(room.image_room),class:"img-fluid") %>
                     <% else %>
-                        <%= image_tag("default_room.png", :size => "140x80") %>
+                        <%= image_tag("default_room.png",class:"img-fluid") %>
                     <% end %>
                 </td>
-                <td><%= link_to "#{room.name}", room,class:'link-offset-2 link-underline link-underline-opacity-0' %></td>
+                <td><%= link_to "#{room.name}", room,class:'link-offset-2 text-decoration-none'%></td>
                 <td><%= room.detail %></td>
-                <td><%= room.price %></td>
+                <td>¥<%= room.price %></td>
                 <td><%= room.created_at %></td>
                 <td>
                     <div class="dropdown"> 

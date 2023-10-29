@@ -14,6 +14,49 @@
                 <% end %>
             </div>
         </div>
-       
+    </div>
+    <div class="area-search-content container">
+        <div class="area-search-bg">
+            <h2 class="text-white">おすすめのエリアから探す<span class="fas fa-map-marker-alt ms-1"></span></h2>
+            <div class="border-bottom border-2 w-50"></div>
+            <div class="row">
+                <div class="col-3 mt-4">
+                    <p class="fs-3 fw-bolder text-white">東京</p>
+                    <%= form_with url: rooms_search_path, local: true, method: :get do |f|%>
+                        <div class="hidden-area">
+                            <%= f.text_field :keyword, value:"東京" %>
+                        </div>
+                            <%= image_submit_tag("東京.jpg", class:"img-fluid rounded") %>
+                    <% end %>
+                </div>
+                <div class="col-3 mt-4">
+                    <p class="fs-3 fw-bolder text-white">大阪</p>
+                    <%= form_with url: rooms_search_path, local: true, method: :get do |f|%>
+                        <div class="hidden-area">
+                            <%= f.text_field :keyword, value:"大阪" %>
+                        </div>
+                        <%= image_submit_tag("大阪.jpg", class:"img-fluid rounded") %>
+                    <% end %>
+                </div>
+                <div class="col-3 mt-4">
+                    <p class="fs-3 fw-bolder text-white">京都</p>
+                    <%= form_with url: rooms_search_path, local: true, method: :get do |f|%>
+                        <div class="hidden-area">
+                            <%= f.text_field :keyword, value:"京都" %>
+                        </div>
+                        <%= image_submit_tag("京都.jpg", class:"img-fluid rounded") %>
+                    <% end %>
+                </div>
+                <div class="col-3 mt-4">
+                    <p class="fs-3 fw-bolder text-white">北海道</p>
+                    <%= form_with url: rooms_search_path, local: true, method: :get do |f|%>
+                        <div class="hidden-area">
+                            <%= f.text_field :keyword, value:"北海道" %>
+                        </div>
+                        <%= image_submit_tag("北海道.jpg", class:"img-fluid rounded") %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

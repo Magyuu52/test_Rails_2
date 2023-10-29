@@ -22,16 +22,13 @@
 
 .orignal-header {
     z-index: 50;
-    opacity: 0.8;
+    background-color:rgba(46, 46, 46, 0.8);
 }
 
 .form-container {
     position: relative;
     max-width: 1150px;
-    padding-top: 120px;
-    padding-left: 80px;
-    padding-right: 80px;
-    height: 1200px;
+    padding: 120px 80px;
     margin:0 auto;
 }
 
@@ -41,7 +38,14 @@
     padding-top: 120px;
     padding-left: 40px;
     padding-right: 40px;
-    height: 1200px;
+    height: 800px;
+    margin:0 auto;
+}
+
+.search-container {
+    position: relative;
+    max-width: 1150px;
+    padding: 120px 40px;
     margin:0 auto;
 }
 
@@ -59,4 +63,8 @@
 .icon {
     width: 40px;
     height: 40px;
+}
+
+.hidden-area {
+    display: none;
 }

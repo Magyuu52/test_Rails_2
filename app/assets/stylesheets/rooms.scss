@@ -8,7 +8,7 @@
 
 .room-price {
     font-size: 30px;
-    color: lightsalmon;
+    color: rgb(255, 145, 0);
 }
 
 .room-adress {
@@ -22,4 +22,8 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
+}
+
+.bg-show {
+    background-color: rgb(255, 145, 0);
 }
