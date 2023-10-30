@@ -16,9 +16,9 @@
             <div class="col-sm-4 mt-4">
                 <div class="bg-light rounded h-100 pb-3">
                     <% if room.image_room.attached? %>
-                        <%= image_tag(rails_blob_path(room.image_room), class:"img-fluid rounded") %>
+                        <%= image_tag(rails_blob_path(room.image_room), class:"rounded img-cover-sm") %>
                     <% else %>
-                        <%= image_tag("default_room.png", class:"img-fluid rounded") %>
+                        <%= image_tag("default_room.png", class:" rounded img-cover-sm") %>
                     <% end %>
                     <div class="px-3">
                         <div class="room-name mt-2"><%= room.name %></div>
