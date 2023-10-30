@@ -1,2 +1,0 @@
-class Resavation < ApplicationRecord
-end

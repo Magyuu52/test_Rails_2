@@ -12,6 +12,15 @@
                 <p class="room-price">¥<%= @room.price %></p>
             </div>
             <%= @room.detail %>
+            <%= form_with model: @reservation, url: reservations_create_path do |f| %> 
+                <%= f.label :check_in ,"チェックイン" %>
+                <%= f.date_select :check_in %>
+                <%= f.label :check_out ,"チェックアウト" %>
+                <%= f.date_select :check_out %>
+                <%= f.label :population ,"タイトル" %>
+                <%= f.text_field :population %>
+                    <%= f.submit "予約する", class:"btn btn-outline-primary w-100 py-3 mt-3 fw-bolder"%>
+            <% end %>
         </div>
     </div>
 </div>
