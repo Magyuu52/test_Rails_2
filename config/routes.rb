@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get '/' => 'home#top'
 
-  get 'reservations/index'
+  resources :reservations, only: [:index, :create, :edit, :update, :destroy]
 
   get 'rooms/search' => 'rooms#search'
   get 'rooms/index' => 'rooms#index'
