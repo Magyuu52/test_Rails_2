@@ -14,7 +14,7 @@
                     <p class="room-price">¥<%= @room.price %></p>
                 </div>
                 <%= @room.detail %>
-                    <%= form_with model: @reservation do |f| %> 
+                    <%= form_with model: @reservation, method: :post, url: reservations_confirm_path do |f| %> 
                         <div class="reservation-form d-flex justify-content-between">
                             <div class="mt-2">
                                 <%= f.label :check_in ,"チェックイン",class:"mb-2" %></br>

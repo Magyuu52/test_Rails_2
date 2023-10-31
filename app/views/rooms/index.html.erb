@@ -16,9 +16,9 @@
             <tr>
                 <td>
                     <% if room.image_room.attached? %>
-                        <%= image_tag(rails_blob_path(room.image_room),class:"img-fluid") %>
+                        <%= image_tag(rails_blob_path(room.image_room),class:"img-cover-s") %>
                     <% else %>
-                        <%= image_tag("default_room.png",class:"img-fluid") %>
+                        <%= image_tag("default_room.png",class:"img-cover-s") %>
                     <% end %>
                 </td>
                 <td><%= link_to "#{room.name}", room,class:'link-offset-2 text-decoration-none'%></td>
