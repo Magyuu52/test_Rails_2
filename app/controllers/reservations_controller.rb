@@ -7,7 +7,8 @@ class ReservationsController < ApplicationController
 
   def confirm
     @reservation = Reservation.new(@target_res)
-		session[:reserve] = @reservation
+		session[:reservation] = @reservation
+    @stay_days = (@reservation.check_out - @reservation.check_in).to_i
 		if @reservation.invalid?
 			render "rooms/:id"
 		end
@@ -30,7 +31,8 @@ class ReservationsController < ApplicationController
   def destroy
   end
 
+  private
 	def permit_params
-		@target_res = params.require(:reservation).permit(:id, :check_in, :check_out, :population)
+		@target_res = params.require('reservation').permit(:check_in, :check_out, :population)
 	end
 end

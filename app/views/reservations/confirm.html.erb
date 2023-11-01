@@ -1,0 +1,21 @@
+<div class="form-container">
+    <h2 class="head-topic">予約確認画面</h2>
+    <div class="bg-light w-auto p-4 fs-5">
+        <div class="d-flex justify-content-between mb-3">
+            <p class="fw-bolder">チェックイン</p>
+            <%= @reservation.check_in %>
+        </div>
+        <div class="d-flex justify-content-between mb-3">
+            <p class="fw-bolder">チェックアウト</p>
+            <%= @reservation.check_out %>
+        </div>
+        <div class="d-flex justify-content-between mb-3">
+            <p class="fw-bolder">人数</p>
+            <%= @reservation.population %>
+        </div>
+        <div class="d-flex justify-content-between">
+            <p class="fw-bolder">宿泊数</p>
+            <%= @stay_days %>
+        </div>
+    </div>
+</div>
