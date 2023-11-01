@@ -4,6 +4,7 @@ class User < ApplicationRecord
     validates :password, presence: true
     validates :password_confim, presence: true
     has_many :rooms
+    has_many :reservations, through: :reservation_users
 
     has_one_attached :image_name
     
