@@ -8,7 +8,9 @@ class ReservationsController < ApplicationController
   def confirm
     @reservation = Reservation.new(@target_res)
 		session[:reservation] = @reservation
+    @room = Room.find(params[:reservation][:room_id])
     @stay_days = (@reservation.check_out - @reservation.check_in).to_i
+    @total_price = (@stay_days * @room.price * @reservation.population).to_i
 		if @reservation.invalid?
 			render "rooms/:id"
 		end
@@ -16,7 +18,7 @@ class ReservationsController < ApplicationController
 
   def create
     if @reservation = Reservation.create!(session[:reservation])
-      redirect_to :reservations_index
+      redirect_to :reservations
     else
       render "rooms/:id"
     end

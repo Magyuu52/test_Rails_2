@@ -13,9 +13,17 @@
             <p class="fw-bolder">人数</p>
             <%= @reservation.population %>
         </div>
-        <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-between mb-3">
             <p class="fw-bolder">宿泊数</p>
             <%= @stay_days %>
         </div>
+        <div class="d-flex justify-content-between">
+            <p class="fw-bolder">合計金額</p>
+            <p>¥<%= @total_price %></p>
+        </div>
+        <%= form_with model: @reservation do |f| %>
+            <%= f.submit "予約を確定する", class:"btn btn-outline-primary w-50 py-2 mt-3 fw-bolder" %>
+        <% end %>
+            <%= link_to "キャンセル", @room, class:"btn btn-outline-primary w-50 py-2 mt-3 fw-bolder" %>
     </div>
 </div>
