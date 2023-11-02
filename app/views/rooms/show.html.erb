@@ -29,6 +29,7 @@
                                 <%= f.label :population ,"人数",class:"mb-2" %></br>               
                                 <%= f.text_field :population, class:"form-control w-25" %>
                             </div>
+                            <%= f.hidden_field :user_id, value: @current_user.id %>
                             <%= f.hidden_field :room_id, value: @room.id %>
                             <%= f.submit "予約する", class:"btn btn-outline-primary w-100 py-2 mt-3 fw-bolder"%>
                     <% end %>

@@ -3,32 +3,30 @@
     <table class="table align-middle">
         <thead class="">
             <tr>
-                <th style="width: 20%">画像</th>
-                <th style="width: 15%">施設名</th>
-                <th style="width: 25%">紹介文</th>
-                <th style="width: 5%">合計料金</th>
+                <th style="width: 15%">画像</th>
+                <th style="width: 10%">施設名</th>
+                <th style="width: 30%">紹介文</th>
+                <th style="width: 10%">合計料金</th>
                 <th style="width: 10%">チェックイン</th>
-                <th style="width: 10%">チェックアウト</th>
+                <th style="width: 12%">チェックアウト</th>
                 <th style="width: 10%">予約確定日時</th>
-                <th style="width: 5%"></th>
+                <th style="width: 3%"></th>
             </tr>
         </thead>
         <tbody>
-        <% @reservations.each do |reservation| %>
+        <% @rooms.each do |room| %>
             <tr>
                 <td>
-                    <% if reservation.room.image_room.attached? %>
-                        <%= image_tag(rails_blob_path(@room.image_room),class:"img-cover-s") %>
+                    <% if room.image_room.attached? %>
+                        <%= image_tag(rails_blob_path(room.image_room),class:"img-cover-s") %>
                     <% else %>
                         <%= image_tag("default_room.png",class:"img-cover-s") %>
                     <% end %>
                 </td>
-                <td><%= link_to "#{reservation.room.name}", room,class:'link-offset-2 text-decoration-none'%></td>
-                <td><%= reservation.room.detail %></td>
-            </tr>
+                <td><%= link_to "#{room.name}", room,class:'link-offset-2 text-decoration-none'%></td>
+                <td><%= room.detail %></td>
         <% end %>
         <% @reservations.each do |reservation| %>
-            <tr>
                 <td><%= reservation.total_price %></td>
                 <td><%= reservation.check_in %></td>
                 <td><%= reservation.check_out %></td>
@@ -39,12 +37,11 @@
                             設定
                         </button>
                         <div class="dropdown-menu" aria-labelledby="btnOpenMenu">
-                            <%= link_to "編集", [:edit, room], class:"dropdown-item" %>
-                            <%= link_to "削除", room, method: :delete, data: { confirm: "本当に削除しますか？" }, class: "dropdown-item text-danger" %>
+                            
                         </div>
                     </div>
                 </td>
-            <tr>
+            </tr>
         <% end %>
         </tbody>
     </table>

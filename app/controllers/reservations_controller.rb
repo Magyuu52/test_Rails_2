@@ -2,8 +2,9 @@ class ReservationsController < ApplicationController
   before_action :permit_params, only: :confirm
 
   def index
-    @reservations = Reservation.all
-    
+    @reservations = Reservation.where(user_id: @current_user)
+    @reservations_roomid = Reservation.select(:room_id).where(user_id: @current_user)
+    @rooms = Room.where(id: @reservations_roomid)
   end
 
   def confirm
@@ -13,6 +14,7 @@ class ReservationsController < ApplicationController
     @stay_days = (@reservation.check_out - @reservation.check_in).to_i
     @total_price = (@stay_days * @room.price * @reservation.population).to_i
 		if @reservation.invalid?
+      @room = User.find_by(params[:reservation][:room_id])
 			render "rooms/show"
 		end
   end
@@ -21,7 +23,7 @@ class ReservationsController < ApplicationController
     if @reservation = Reservation.create!(session[:reservation])
       redirect_to :reservations
     else
-      render "rooms/show"
+      render "reservation/confirm"
     end
   end
 
@@ -36,6 +38,6 @@ class ReservationsController < ApplicationController
 
   private
 	def permit_params
-		@target_res = params.require('reservation').permit(:check_in, :check_out, :total_price, :population)
+		@target_res = params.require('reservation').permit(:check_in, :check_out, :total_price, :population, :user_id, :room_id)
 	end
 end
