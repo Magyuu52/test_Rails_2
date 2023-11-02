@@ -3,6 +3,7 @@ class ReservationsController < ApplicationController
 
   def index
     @reservations = Reservation.all
+    
   end
 
   def confirm
@@ -12,7 +13,7 @@ class ReservationsController < ApplicationController
     @stay_days = (@reservation.check_out - @reservation.check_in).to_i
     @total_price = (@stay_days * @room.price * @reservation.population).to_i
 		if @reservation.invalid?
-			render "rooms/:id"
+			render "rooms/show"
 		end
   end
 
@@ -20,7 +21,7 @@ class ReservationsController < ApplicationController
     if @reservation = Reservation.create!(session[:reservation])
       redirect_to :reservations
     else
-      render "rooms/:id"
+      render "rooms/show"
     end
   end
 
@@ -35,6 +36,6 @@ class ReservationsController < ApplicationController
 
   private
 	def permit_params
-		@target_res = params.require('reservation').permit(:check_in, :check_out, :population)
+		@target_res = params.require('reservation').permit(:check_in, :check_out, :total_price, :population)
 	end
 end
