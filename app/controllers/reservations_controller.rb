@@ -3,8 +3,9 @@ class ReservationsController < ApplicationController
 
   def index
     @reservations = Reservation.where(user_id: @current_user)
-    @reservations_roomid = Reservation.select(:room_id).where(user_id: @current_user)
-    @rooms = Room.where(id: @reservations_roomid)
+    @reservations_room_id = Reservation.select(:room_id).where(user_id: @current_user)
+    @room = Room.new
+    @rooms = Room.where(id: @reservations_room_id)
   end
 
   def confirm
@@ -12,7 +13,7 @@ class ReservationsController < ApplicationController
 		session[:reservation] = @reservation
     @room = Room.find(params[:reservation][:room_id])
     @stay_days = (@reservation.check_out - @reservation.check_in).to_i
-    @total_price = (@stay_days * @room.price * @reservation.population).to_i
+    @reservation.total_price = (@stay_days * @room.price * @reservation.population).to_i
 		if @reservation.invalid?
       @room = User.find_by(params[:reservation][:room_id])
 			render "rooms/show"

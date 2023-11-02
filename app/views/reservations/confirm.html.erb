@@ -19,10 +19,10 @@
         </div>
         <div class="d-flex justify-content-between">
             <p class="fw-bolder">合計金額</p>
-            <p>¥<%= @total_price %></p>
+            <p>¥<%= @reservation.total_price %></p>
         </div>
         <%= form_with model: @reservation do |f| %>
-            <%= f.hidden_field :total_price, value: @total_price %>
+            <%= f.hidden_field :total_price, value: @reservation.total_price %>
             <%= f.submit "予約を確定する", class:"btn btn-outline-primary w-50 py-2 mt-3 fw-bolder" %>
         <% end %>
             <%= link_to "キャンセル", @room, class:"btn btn-outline-primary w-50 py-2 mt-3 fw-bolder" %>
