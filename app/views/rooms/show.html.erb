@@ -1,5 +1,8 @@
 <div class="body-container">
     <h2 class="head-topic">施設情報</h2>
+
+    <%= render "shared/error",obj: @reservation%>
+
     <div class="row">
         <div class="col-lg-6">
             <% if @room.image_room.attached? %>

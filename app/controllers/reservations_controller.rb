@@ -13,9 +13,10 @@ class ReservationsController < ApplicationController
 		session[:reservation] = @reservation
     @room = Room.find(params[:reservation][:room_id])
     @stay_days = (@reservation.check_out - @reservation.check_in).to_i
-    @reservation.total_price = (@stay_days * @room.price * @reservation.population).to_i
+    @reservation.population ||= 0
+    @reservation.total_price = (@stay_days * @room.price * @reservation.population)
 		if @reservation.invalid?
-      @room = User.find_by(params[:reservation][:room_id])
+      @room = Room.find_by(params[:reservation][:room_id])
 			render "rooms/show"
 		end
   end
