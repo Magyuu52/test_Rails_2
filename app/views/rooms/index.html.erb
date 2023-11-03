@@ -27,14 +27,14 @@
                 <td><%= l room.created_at,format: :short %></td>
                 <td>
                     <div class="dropdown"> 
-                    <button id="btnOpenMenu" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        設定
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="btnOpenMenu">
-                        <%= link_to "編集", [:edit, room], class:"dropdown-item" %>
-                        <%= link_to "削除", room, method: :delete, data: { confirm: "本当に削除しますか？" }, class: "dropdown-item text-danger" %>
+                        <button id="btnOpenMenu" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            設定
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="btnOpenMenu">
+                            <%= link_to "編集", [:edit, room], class:"dropdown-item" %>
+                            <%= link_to "削除", room, method: :delete, data: { confirm: "本当に削除しますか？" }, class: "dropdown-item text-danger" %>
+                        </div>
                     </div>
-                </div>
                 </td>
             </tr>
         <% end %>

@@ -34,14 +34,14 @@
                     <td><%= l reservation.check_out,formats: :short %></td>
                     <td><%= l reservation.created_at,format: :long %></td>
                     <td>
-                        <div class="dropdown"> 
-                            <button id="btnOpenMenu" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                設定
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="btnOpenMenu">
-                                    
-                            </div>
+                    <div class="dropdown"> 
+                        <button id="btnOpenMenu" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            設定
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="btnOpenMenu">
+                            <%= link_to "取り消し", reservation, method: :delete, data: { confirm: "本当に取り消しますか？" }, class: "dropdown-item text-danger" %>
                         </div>
+                    </div>
                     </td>
             </tr>
         <% end %>

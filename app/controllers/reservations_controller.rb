@@ -29,13 +29,10 @@ class ReservationsController < ApplicationController
     end
   end
 
-  def edit
-  end
-
-  def update
-  end
-
   def destroy
+    @reservation = Reservation.find(params[:id])
+     @reservation.destroy
+     redirect_to :reservations
   end
 
   private
