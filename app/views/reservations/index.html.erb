@@ -6,11 +6,11 @@
                 <th style="width: 15%">画像</th>
                 <th style="width: 10%">施設名</th>
                 <th style="width: 30%">紹介文</th>
-                <th style="width: 10%">合計料金</th>
+                <th style="width: 8%">合計料金</th>
                 <th style="width: 11%">チェックイン</th>
-                <th style="width: 11%">チェックアウト</th>
-                <th style="width: 10%">予約確定日時</th>
-                <th style="width: 3%"></th>
+                <th style="width: 13%">チェックアウト</th>
+                <th style="width: 11%">予約確定日時</th>
+                <th style="width: 2%"></th>
             </tr>
         </thead>
         <tbody>
@@ -30,9 +30,9 @@
                 </td>
                     <td><%= reservation.room.detail %></td>           
                     <td>¥<%= reservation.total_price %></td>
-                    <td><%= reservation.check_in %></td>
-                    <td><%= reservation.check_out %></td>
-                    <td><%= reservation.created_at %></td>
+                    <td><%= l reservation.check_in,formats: :short %></td>
+                    <td><%= l reservation.check_out,formats: :short %></td>
+                    <td><%= l reservation.created_at,format: :long %></td>
                     <td>
                         <div class="dropdown"> 
                             <button id="btnOpenMenu" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

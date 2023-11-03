@@ -24,7 +24,7 @@
                 <td><%= link_to "#{room.name}", room,class:'link-offset-2 text-decoration-none'%></td>
                 <td><%= room.detail %></td>
                 <td>¥<%= room.price %></td>
-                <td><%= room.created_at %></td>
+                <td><%= l room.created_at,format: :short %></td>
                 <td>
                     <div class="dropdown"> 
                     <button id="btnOpenMenu" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

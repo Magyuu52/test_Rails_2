@@ -20,6 +20,10 @@
  @import '@fortawesome/fontawesome-free/scss/brands';
  @import '@fortawesome/fontawesome-free/scss/v4-shims';
 
+ th {
+    font-size: 14px;
+ }
+
 .orignal-header {
     z-index: 50;
     background-color:rgba(46, 46, 46, 0.8);
