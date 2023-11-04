@@ -1,9 +1,9 @@
 <div class="form-container">
-    <h2 class="head-topic">アカウント編集</h2>
+    <h2 class="head-topic">プロフィール編集</h2>
 
     <%= render "shared/error",obj: @current_user%>
 
-    <%= form_with model: @user, url: users_account_update_path do |f| %>
+    <%= form_with model: @user, url: users_profile_update_path do |f| %>
         <div class="mb-3 d-flex align-items-center">
             <%= f.label :name ,"アイコン画像" ,class:"me-3" %>
                 <% if @current_user.image_name.attached? %>
@@ -15,7 +15,7 @@
         <%= f.file_field :image_name, id:"item-image", class:"hidden mb-3" %>
         <div class="mb-3">
             <%= f.label :name ,"ユーザー名" ,class:"mb-3" %><span class="required-item">*</span>
-            <%= f.text_field :name, class:"form-control", placeholder:"ユーザー名を入力" %>
+            <%= f.text_field :name, class:"form-control", placeholder:"ユーザー名を入力",value:"#{@current_user.name}" %>
         </div>
         <div class="mb-3">
             <%= f.label :introduction ,"自己紹介" ,class:"mb-3" %>

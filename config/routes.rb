@@ -11,8 +11,10 @@ Rails.application.routes.draw do
   resources :rooms, only: [:show, :edit, :update, :destroy]
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  post 'users/account/update' => 'users#update'
-  get 'users/account/edit' => 'users#edit'
+  get 'users/account/edit' => 'users#account_edit'
+  post 'users/account/update' => 'users#account_update'
+  get 'users/profile/edit' => 'users#profile_edit'
+  post 'users/profile/update' => 'users#profile_update'
   get 'login' => 'users#login_form'
   post 'login' => 'users#login'
   post 'logout' => 'users#logout'

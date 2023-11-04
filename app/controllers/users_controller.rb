@@ -14,13 +14,22 @@ class UsersController < ApplicationController
     end
   end
 
+  def account
+  end
+
+  def account_edit
+  end
+
+  def account_update
+  end
+
   def profile
   end
 
-  def edit
+  def profile_edit
   end
 
-  def update
+  def profile_update
     @user = User.find_by(id: params[:id])
     if @current_user.update(params.permit(:name, :image_name, :introduction))
       redirect_to :users_account

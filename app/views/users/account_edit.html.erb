@@ -1,0 +1,23 @@
+<div class="form-container">
+    <h2 class="head-topic">アカウント編集</h2>
+
+    <%= render "shared/error",obj: @current_user%>
+
+    <%= form_with model: @user, url: users_account_update_path do |f| %>
+        <div class="mb-3">
+            <%= f.label :email ,"メールアドレス" ,class:"mb-2" %>
+            <%= f.text_field :email, class:"form-control",value:"#{@current_user.email}" %>
+        </div>
+        <div class="mb-3">
+            <%= f.label :password ,"パスワード" ,class:"mb-2" %>
+            <%= f.password_field :password, class:"form-control",value:"#{@current_user.password}"%>
+        </div>
+        <div class="mb-4">
+            <%= f.label :password_confim ,"確認用パスワード" ,class:"mb-2" %>
+            <%= f.password_field :password_confim, class:"form-control",value:"#{@current_user.password_confim}" %>
+        </div>
+            <%= f.submit  "保存", class:"btn btn-outline-primary w-25 py-2 mt-3 fw-bolder"%>
+            <%= link_to "キャンセル", :users_account , class:"btn btn-outline-dark w-25 py-2 mt-3 fw-bolder" %>
+        
+    <% end %>
+</div>
