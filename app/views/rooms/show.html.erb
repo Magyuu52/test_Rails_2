@@ -11,12 +11,13 @@
                 <%= image_tag("default_room.png",class:"img-cover-lg") %>
             <% end %>
         </div>
-            <div class="bg-light align-self-baseline px-4 py-3 col-lg-6">
+            <div class="bg-light align-self-baseline px-4 py-5 col-lg-6">
                 <div class="d-flex justify-content-between">
                     <p class="room-name"><%= @room.name %></p>
                     <p class="room-price">¥<%= @room.price %></p>
                 </div>
                 <%= @room.detail %>
+                <% if @current_user %>
                     <%= form_with model: @reservation, method: :post, url: reservations_confirm_path do |f| %> 
                         <div class="reservation-form d-flex justify-content-between">
                             <div class="mt-2">
@@ -29,13 +30,22 @@
                             </div>
                         </div>
                             <div class="mt-2"> 
-                                <%= f.label :population ,"人数",class:"mb-2" %></br>               
+                                <%= f.label :population ,"人数",class:"mb-2" %>              
                                 <%= f.text_field :population, class:"form-control w-25" %>
                             </div>
                             <%= f.hidden_field :user_id, value: @current_user.id %>
                             <%= f.hidden_field :room_id, value: @room.id %>
-                            <%= f.submit "予約する", class:"btn btn-outline-primary w-100 py-2 mt-3 fw-bolder"%>
+                            <%= f.submit "予約する", class:"text-decoration-none text-white bg-show border border-light p-3 mt-3 w-100 rounded fw-bolder text-center"%>
                     <% end %>
+                <% else %>
+                    <div class="mt-4"> 
+                        <p>※予約する場合は、ログインか新規登録が必要です</p>
+                            <div class="mt-4 d-flex justify-content-between">
+                                <%= link_to "ログインはこちら", :login, class:"text-decoration-none text-white bg-show p-3 me-3 w-50 rounded fw-bolder text-center" %>
+                                <%= link_to "新規登録はこちら", :users_signup, class:"text-decoration-none text-white bg-show p-3 w-50 rounded fw-bolder text-center" %>
+                            </div>
+                    </div> 
+                <% end %>        
             </div>
         </div>
 </div>

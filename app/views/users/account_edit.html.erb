@@ -1,7 +1,9 @@
 <div class="form-container">
     <h2 class="head-topic">アカウント編集</h2>
 
-    <%= render "shared/error",obj: @current_user%>
+    <div class="error-messages">
+        <%= render "shared/error",obj: @user %>
+    </div>
 
     <%= form_with model: @user, url: users_account_update_path do |f| %>
         <div class="mb-3">

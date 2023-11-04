@@ -1,5 +1,8 @@
 <div class="form-container">
+
     <h2 class="head-topic">ログイン</h2>
+
+
     <%= form_with model: @user, url: login_path do |f| %>
         <div class="mb-3">
             <%= f.label :email ,"メールアドレス" ,class:"mb-3" %><span class="required-item">*</span>
