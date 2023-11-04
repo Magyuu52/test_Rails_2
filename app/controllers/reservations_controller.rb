@@ -23,6 +23,7 @@ class ReservationsController < ApplicationController
 
   def create
     if @reservation = Reservation.create!(session[:reservation])
+      flash[:notice] = "「#{@reservation.room.name}」の予約に成功しました"
       redirect_to :reservations
     else
       render "reservation/confirm"
@@ -32,6 +33,7 @@ class ReservationsController < ApplicationController
   def destroy
     @reservation = Reservation.find(params[:id])
      @reservation.destroy
+     flash[:notice] = "「#{@reservation.room.name}」の予約を削除しました"
      redirect_to :reservations
   end
 
