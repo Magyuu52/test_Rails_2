@@ -21,6 +21,12 @@ class UsersController < ApplicationController
   end
 
   def account_update
+    @user = User.find_by(id: params[:id])
+    if @current_user.update(params.permit(:email, :password, :password_confim))
+      redirect_to :users_account
+    else
+      render "account_edit"
+    end
   end
 
   def profile
@@ -32,9 +38,9 @@ class UsersController < ApplicationController
   def profile_update
     @user = User.find_by(id: params[:id])
     if @current_user.update(params.permit(:name, :image_name, :introduction))
-      redirect_to :users_account
+      redirect_to :users_profile
     else
-      render "edit"
+      render "profile_edit"
     end
   end
 
