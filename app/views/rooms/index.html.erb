@@ -31,8 +31,8 @@
                             設定
                         </button>
                         <div class="dropdown-menu" aria-labelledby="btnOpenMenu">
-                            <%= link_to "編集", [:edit, room], class:"dropdown-item" %>
-                            <%= link_to "削除", room, method: :delete, data: { confirm: "本当に削除しますか？" }, class: "dropdown-item text-danger" %>
+                            <%= link_to "編集", [:edit, room], class:"dropdown-item", data: { turbolinks: :false }  %>
+                            <%= link_to "削除", room, method: :delete, data: { confirm: "本当に削除しますか？" }, class: "dropdown-item text-danger", data: { turbolinks: :false }  %>
                         </div>
                     </div>
                 </td>
