@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :reservations, only: [:index, :create, :destroy]
   post 'reservations/confirm' => 'reservations#confirm'
+  get 'reservations/confirm' => 'reservations#confirm'
 
   get 'rooms/search' => 'rooms#search'
   get 'rooms/index' => 'rooms#index'

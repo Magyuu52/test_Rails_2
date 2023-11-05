@@ -16,8 +16,7 @@ class ReservationsController < ApplicationController
     @reservation.population ||= 0
     @reservation.total_price = (@stay_days * @room.price * @reservation.population)
 		if @reservation.invalid?
-      @room = Room.find_by(params[:reservation][:room_id])
-			render "rooms/show"
+			render 'rooms/show'
 		end
   end
 
@@ -26,7 +25,7 @@ class ReservationsController < ApplicationController
       flash[:notice] = "「#{@reservation.room.name}」の予約に成功しました"
       redirect_to :reservations
     else
-      render "reservation/confirm"
+      render "reservations/confirm"
     end
   end
 
@@ -39,6 +38,6 @@ class ReservationsController < ApplicationController
 
   private
 	def permit_params
-		@target_res = params.require('reservation').permit(:check_in, :check_out, :total_price, :population, :user_id, :room_id)
+		@target_res = params[:reservation].permit(:check_in, :check_out, :total_price, :population, :user_id, :room_id)
 	end
 end

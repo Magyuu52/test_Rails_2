@@ -1,7 +1,9 @@
 <div class="form-container">
     <h2 class="head-topic">新規登録</h2>
 
-    <%= render "shared/error",obj: @user%>
+    <div class="error-messages">
+        <%= render "shared/error",obj: @user%>
+    </div>
 
     <%= form_with model: @user, url: users_create_path do |f| %> 
         <div class="mb-3">

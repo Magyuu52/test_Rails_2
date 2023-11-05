@@ -1,7 +1,9 @@
 <div class="form-container">
     <h2 class="head-topic">プロフィール編集</h2>
 
-    <%= render "shared/error",obj: @current_user%>
+    <div class="error-messages">
+        <%= render "shared/error",obj: @current_user%>
+    </div>
 
     <%= form_with model: @user, url: users_profile_update_path do |f| %>
         <div class="mb-3 d-flex align-items-center">

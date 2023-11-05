@@ -18,7 +18,7 @@
             <tr>
                 <td>
                     <% if reservation.room.image_room.attached? %>
-                        <%= image_tag(rails_blob_path(room.image_room),class:"img-cover-s") %>
+                        <%= image_tag(rails_blob_path(reservation.room.image_room),class:"img-cover-s") %>
                     <% else %>
                         <%= image_tag("default_room.png",class:"img-cover-s") %>
                     <% end %>
@@ -28,12 +28,12 @@
                        <%= reservation.room.name %>
                     <% end %>
                 </td>
-                    <td><%= reservation.room.detail %></td>           
-                    <td>¥<%= reservation.total_price %></td>
-                    <td><%= l reservation.check_in,formats: :short %></td>
-                    <td><%= l reservation.check_out,formats: :short %></td>
-                    <td><%= l reservation.created_at,format: :long %></td>
-                    <td>
+                <td><%= reservation.room.detail %></td>           
+                <td>¥<%= reservation.total_price %></td>
+                <td><%= l reservation.check_in,formats: :short %></td>
+                <td><%= l reservation.check_out,formats: :short %></td>
+                <td><%= l reservation.created_at,format: :long %></td>
+                <td>
                     <div class="dropdown"> 
                         <button id="btnOpenMenu" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             設定
@@ -42,7 +42,7 @@
                             <%= link_to "取り消し", reservation, method: :delete, data: { confirm: "本当に取り消しますか？" }, class: "dropdown-item text-danger" %>
                         </div>
                     </div>
-                    </td>
+                </td>
             </tr>
         <% end %>
         </tbody>
