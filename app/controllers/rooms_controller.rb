@@ -46,8 +46,8 @@ class RoomsController < ApplicationController
   end
 
   def search
-    @searched_rooms = Room.where("adress like ?", "%#{params[:keyword]}%")
-    @rooms_count = Room.where("adress like ?", "%#{params[:keyword]}%").count
+    @searched_rooms = Room.where("adress like ? or name like ? or detail like ?", "%#{params[:keyword]}%", "%#{params[:keyword]}%", "%#{params[:keyword]}%")
+    @rooms_count = Room.where("adress like ? or name like ? or detail like ?", "%#{params[:keyword]}%", "%#{params[:keyword]}%", "%#{params[:keyword]}%").count
   end
 
 end

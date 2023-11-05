@@ -4,10 +4,10 @@
         <h1>まだ体験したことのない
         <h1>旅をしよう</h1>
         <div class="search-content">
-            <p>気になるエリアを検索してみよう！</p>
+            <p>気になるキーワードで検索してみよう！</p>
             <div class="input-group">
                 <%= form_with url: 'rooms/search', local: true, method: :get, class: "search-form d-flex w-100" do |f|%>
-                    <%= f.text_field :keyword, placeholder:"エリアを入力", class:"form-control py-3" %>
+                    <%= f.text_field :keyword, class:"form-control py-3", placeholder:"キーワードを入力" %>
                     <%= button_tag type: "submit", class: "btn btn-success w-25" do %>
                         <i class="fas fa-search me-1"></i><span>検索</span>
                     <% end %>

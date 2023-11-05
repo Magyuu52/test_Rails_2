@@ -29,13 +29,6 @@ class ReservationsController < ApplicationController
     end
   end
 
-  def destroy
-    @reservation = Reservation.find(params[:id])
-     @reservation.destroy
-     flash[:notice] = "「#{@reservation.room.name}」の予約を削除しました"
-     redirect_to :reservations
-  end
-
   private
 	def permit_params
 		@target_res = params[:reservation].permit(:check_in, :check_out, :total_price, :population, :user_id, :room_id)

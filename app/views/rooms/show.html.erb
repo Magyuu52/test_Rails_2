@@ -5,6 +5,9 @@
         <%= render "shared/error",obj: @reservation%>
     </div>
 
+    <%= link_to :back,class:"text-decoration-none" do %>
+        <p class="fs-5"><i class="fas fa-reply me-2"></i>戻る</span></p>
+    <% end %>
     <div class="row">
         <div class="col-lg-6">
             <% if @room.image_room.attached? %>
@@ -13,7 +16,7 @@
                 <%= image_tag("default_room.png",class:"img-cover-lg") %>
             <% end %>
         </div>
-            <div class="bg-light align-self-baseline px-4 py-5 col-lg-6">
+            <div class="bg-light align-self-baseline px-4 py-5 col-lg-6 mb-5">
                 <div class="d-flex justify-content-between">
                     <p class="room-name"><%= @room.name %></p>
                     <p class="room-price">¥<%= @room.price %></p>

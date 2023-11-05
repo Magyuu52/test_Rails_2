@@ -58,7 +58,7 @@
     padding-top: 120px;
     padding-left: 40px;
     padding-right: 40px;
-    
+    min-height: 500px;
     margin:0 auto;
 }
 
@@ -69,15 +69,17 @@
     margin:0 auto;
 }
 
+.confirm-form-container {
+    position: relative;
+    max-width: 1350px;
+    padding:120px 150px 80px 150px;
+    margin:0 auto;
+}
+
 .head-topic {
     font-weight: bolder;
     font-size: 40px;
     margin-bottom: 30px;
-}
-
-.required-item {
-    margin-left: 1px;
-    color: red;
 }
 
 .icon {
@@ -116,4 +118,15 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
+}
+
+.original-footer {
+    height: auto;
+    background-color: rgb(0, 157, 255);
+    padding-bottom: 50px;
+}
+
+.footer-messages{
+    padding-top: 120px;
+    color: white;
 }

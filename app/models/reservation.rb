@@ -13,6 +13,6 @@ class Reservation < ApplicationRecord
   end
     
   def check_in_restriction
-      errors.add(:チェックイン,"は現在の日時より遅い日付を選択してください") if check_in < Time.now
+      errors.add(:チェックイン,"は現在より遅い日付を選択してください") if check_in < Time.now
   end
 end

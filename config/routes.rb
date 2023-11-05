@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get '/' => 'home#top'
 
-  resources :reservations, only: [:index, :create, :destroy]
+  resources :reservations, only: [:index, :create]
   post 'reservations/confirm' => 'reservations#confirm'
   get 'reservations/confirm' => 'reservations#confirm'
 

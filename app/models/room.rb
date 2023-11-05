@@ -10,6 +10,6 @@ class Room < ApplicationRecord
 
       def self.search(search)
         return Room.all unless search
-        Room.where('adress LIKE(?)', "%#{search}%")
+        Room.where('adress LIKE(?) name LIKE(?) detail LIKE(?)', "%#{search}%", "%#{search}%", "%#{search}%")
       end
 end
