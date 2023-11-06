@@ -8,8 +8,13 @@ class Room < ApplicationRecord
     
     has_one_attached :image_room
 
-      def self.search(search)
+      def self.area_search(search)
         return Room.all unless search
-        Room.where('adress LIKE(?) name LIKE(?) detail LIKE(?)', "%#{search}%", "%#{search}%", "%#{search}%")
+        Room.where('adress LIKE(?)', "%#{search}%")
+      end
+
+      def self.anyword_search(search)
+        return Room.all unless search
+        Room.where('name LIKE(?) or detail LIKE(?)',"%#{search}%","%#{search}%")
       end
 end

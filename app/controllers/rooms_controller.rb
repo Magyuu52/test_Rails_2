@@ -46,8 +46,18 @@ class RoomsController < ApplicationController
   end
 
   def search
-    @searched_rooms = Room.where("adress like ? or name like ? or detail like ?", "%#{params[:keyword]}%", "%#{params[:keyword]}%", "%#{params[:keyword]}%")
-    @rooms_count = Room.where("adress like ? or name like ? or detail like ?", "%#{params[:keyword]}%", "%#{params[:keyword]}%", "%#{params[:keyword]}%").count
+    @area_keyword = params[:area_keyword]
+    @any_keyword = params[:any_keyword]
+    if params[:area_keyword].present?
+      @rooms = Room.where("adress like ?", "%#{params[:area_keyword]}%")
+    elsif params[:any_keyword].present?
+      @rooms = Room.where("name like ?","%#{params[:any_keyword]}%").or(Room.where("detail like ?","%#{params[:any_keyword]}%"))
+    else
+      @rooms = Room.all
+    end
+    @area_rooms_count = Room.where("adress like ?", "%#{params[:area_keyword]}%").count
+    @anyword_rooms_count = Room.where("name like ?","%#{params[:any_keyword]}%").or(Room.where("detail like ?","%#{params[:any_keyword]}%")).count
+    @all_rooms_count = Room.all.count
   end
 
 end
