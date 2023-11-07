@@ -1,0 +1,64 @@
+ja:
+  activerecord:
+    models:
+      active_storage/attachment: アクティブなストレージ/アタッチメント  #g
+      active_storage/blob: アクティブなストレージ/BLOB  #g
+      active_storage/variant_record: アクティブなストレージ/バリアント レコード  #g
+      reservation: 予約  #g
+      room: 部屋  #g
+      user: ユーザー  #g
+
+    attributes:
+      active_storage/attachment:
+        blob: :activerecord.models.blob  #g
+        name: 名前  #g
+        record: :activerecord.models.record  #g
+        record_type: レコードタイプ  #g
+
+      active_storage/blob:
+        attachments: 添付ファイル  #g
+        byte_size: バイトサイズ  #g
+        checksum: チェックサム  #g
+        content_type: コンテンツタイプ  #g
+        filename: ファイル名  #g
+        key: 鍵  #g
+        metadata: メタデータ  #g
+        preview_image_attachment: :activerecord.models.preview_image_attachment  #g
+        preview_image_blob: :activerecord.models.preview_image_blob  #g
+        service_name: サービス名  #g
+        variant_records: バリアントレコード  #g
+
+      active_storage/variant_record:
+        blob: :activerecord.models.blob  #g
+        image_attachment: :activerecord.models.image_attachment  #g
+        image_blob: :activerecord.models.image_blob  #g
+        variation_digest: バリエーションダイジェスト  #g
+
+      reservation:
+        check_in: チェックイン  #g
+        check_out: チェックアウト  #g
+        population: 人口  #g
+        room: :activerecord.models.room  #g
+        total_price: 合計金額  #g
+        user: :activerecord.models.user  #g
+
+      room:
+        adress: 住所  #g
+        detail: 詳細  #g
+        image_room_attachment: :activerecord.models.image_room_attachment  #g
+        image_room_blob: :activerecord.models.image_room_blob  #g
+        name: 名前  #g
+        price: 価格  #g
+        reservations: 予約  #g
+        user: :activerecord.models.user  #g
+
+      user:
+        email: Eメール  #g
+        image_name_attachment: :activerecord.models.image_name_attachment  #g
+        image_name_blob: :activerecord.models.image_name_blob  #g
+        introduction: 導入  #g
+        name: 名前  #g
+        password: パスワード  #g
+        password_confim: パスワードの確認  #g
+        reservations: 予約  #g
+        rooms: 部屋  #g

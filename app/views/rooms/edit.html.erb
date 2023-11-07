@@ -1,0 +1,31 @@
+<div class="form-container">
+    <h2 class="head-topic">施設情報の編集</h2>
+
+    <div class="error-messages">
+        <%= render "shared/error",obj: @room%>
+    </div>
+
+    <%= form_with model: @room do |f| %> 
+        <div class="mb-3">
+            <%= f.label :name ,"施設名" ,class:"mb-3" %><span class="required-item">*</span>
+            <%= f.text_field :name, class:"form-control", placeholder:"施設名を入力" %>
+        </div>
+        <div class="mb-3">
+            <%= f.label :detail ,"施設詳細" ,class:"mb-3" %><span class="required-item">*</span>
+            <%= f.text_area :detail, class:"form-control", placeholder:"施設詳細を入力" %>
+        </div>
+        <div class="mb-3">
+            <%= f.label :price ,"料金" ,class:"mb-3" %><span class="required-item">*</span>
+            <%= f.text_field :price, class:"form-control", placeholder:"料金を入力" %>
+        </div>
+        <div class="mb-3">
+            <%= f.label :adress ,"住所" ,class:"mb-3" %><span class="required-item">*</span>
+            <%= f.text_field :adress, class:"form-control", placeholder:"住所を入力" %>
+        </div>
+        <div class="mb-4">
+            <%= f.label :image_room ,"施設画像" ,class:"mb-3" %><br>
+            <%= f.file_field :image_room, id:"item-image", class:"hidden mb-3"%>
+        </div>
+            <%= f.submit "施設情報を保存する", class:"btn btn-outline-primary w-100 py-3 mt-3 fw-bolder"%>
+    <% end %>
+</div>

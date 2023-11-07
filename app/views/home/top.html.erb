@@ -1,0 +1,62 @@
+<div class="top-body">
+    <div class="body-container">
+        <h1>Bookappで</h1>
+        <h1>まだ体験したことのない
+        <h1>旅をしよう</h1>
+        <div class="search-content">
+            <p>気になるエリアで検索してみよう！</p>
+            <div class="input-group">
+                <%= form_with url: 'rooms/search', local: true, method: :get, class: "search-form d-flex w-100" do |f|%>
+                    <%= f.text_field :area_keyword, class:"form-control py-3", placeholder:"キーワードを入力" %>
+                    <%= button_tag type: "submit", class: "btn btn-success w-25" do %>
+                        <i class="fas fa-search me-1"></i><span>検索</span>
+                    <% end %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+    <div class="area-search-content container">
+        <div class="area-search-bg">
+            <h2 class="text-white">おすすめのエリアから探す<span class="fas fa-map-marker-alt ms-1"></span></h2>
+            <div class="border-bottom border-2 w-50"></div>
+            <div class="row">
+                <div class="col-3 mt-4">
+                    <p class="fs-3 fw-bolder text-white">東京</p>
+                    <%= form_with url: rooms_search_path, local: true, method: :get do |f|%>
+                        <div class="hidden-area">
+                            <%= f.text_field :area_keyword, value:"東京" %>
+                        </div>
+                            <%= image_submit_tag("東京.jpg", class:"img-fluid rounded") %>
+                    <% end %>
+                </div>
+                <div class="col-3 mt-4">
+                    <p class="fs-3 fw-bolder text-white">大阪</p>
+                    <%= form_with url: rooms_search_path, local: true, method: :get do |f|%>
+                        <div class="hidden-area">
+                            <%= f.text_field :area_keyword, value:"大阪" %>
+                        </div>
+                        <%= image_submit_tag("大阪.jpg", class:"img-fluid rounded") %>
+                    <% end %>
+                </div>
+                <div class="col-3 mt-4">
+                    <p class="fs-3 fw-bolder text-white">京都</p>
+                    <%= form_with url: rooms_search_path, local: true, method: :get do |f|%>
+                        <div class="hidden-area">
+                            <%= f.text_field :area_keyword, value:"京都" %>
+                        </div>
+                        <%= image_submit_tag("京都.jpg", class:"img-fluid rounded") %>
+                    <% end %>
+                </div>
+                <div class="col-3 mt-4">
+                    <p class="fs-3 fw-bolder text-white">北海道</p>
+                    <%= form_with url: rooms_search_path, local: true, method: :get do |f|%>
+                        <div class="hidden-area">
+                            <%= f.text_field :area_keyword, value:"北海道" %>
+                        </div>
+                        <%= image_submit_tag("北海道.jpg", class:"img-fluid rounded") %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

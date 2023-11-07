@@ -1,0 +1,33 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.account-container {
+    position: relative;
+    max-width: 1150px;
+    padding-top: 120px;
+    padding-left: 40px;
+    padding-right: 40px;
+    height: 600px;
+    margin:0 auto;
+}
+
+.account-container {
+    font-size: 15px;
+}
+
+.account-wrapper {
+    position: relative;
+    margin-top: 50px;
+}
+
+.account-header {
+    font-size: 40px;
+}
+
+.account-items {
+    font-weight: bolder;
+}
+
+.account-btn {
+    min-width: 250px;
+}

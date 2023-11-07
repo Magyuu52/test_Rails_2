@@ -1,0 +1,43 @@
+<div class="search-container">
+    <div class="input-group mb-5">
+        <%= form_with url: rooms_search_path, local: true, method: :get, class: "search-form d-flex w-100 justify-content-center" do |f|%>
+            <%= f.text_field :area_keyword, placeholder:"エリアを入力", class:"form-control py-3 w-25 me-5" %>
+            <%= f.text_field :any_keyword, placeholder:"キーワードを入力", class:"form-control py-3 w-25 me-5" %>
+            <%= button_tag type: "submit", class: "btn btn-success w-25" do %>
+                <i class="fas fa-search me-1"></i><span>検索</span>
+            <% end %>
+        <% end %>
+    </div>
+    <div class="d-flex justify-content-between align-items-center">
+        <h2 class="head-topic">検索結果</h2>
+        <% if params[:area_keyword].present? %>
+            <p class="fs-3 fw-bolder"><%= @area_rooms_count %>件が見つかりました</p>
+        <% elsif params[:any_keyword].present? %>
+            <p class="fs-3 fw-bolder"><%= @anyword_rooms_count %>件が見つかりました</p>
+        <% else %>
+            <p class="fs-3 fw-bolder"><%= @all_rooms_count %>件が見つかりました</p>
+        <% end %>
+    </div>
+    <div class="row">
+        <% @rooms.each do |room| %>
+            <div class="col-sm-4 mt-4">
+                <div class="bg-light rounded h-100 pb-3">
+                    <% if room.image_room.attached? %>
+                        <%= image_tag(rails_blob_path(room.image_room), class:"rounded img-cover-sm") %>
+                    <% else %>
+                        <%= image_tag("default_room.png", class:" rounded img-cover-sm") %>
+                    <% end %>
+                    <div class="px-3">
+                        <div class="room-name mt-2"><%= room.name %></div>
+                        <div class="room-adress"><%= room.adress %></div>
+                        <p class="room-detail mt-1"><%= room.detail %></p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="room-price">¥<%= room.price %></div>
+                            <%= link_to "詳細はこちら", room, class:'link-offset-2 text-decoration-none text-white bg-show p-3 rounded fw-bolder'%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>

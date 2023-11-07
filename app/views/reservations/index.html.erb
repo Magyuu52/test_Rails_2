@@ -1,0 +1,39 @@
+<div class="body-container">
+    <h2 class="head-topic">予約施設一覧</h2>
+    <table class="table align-middle">
+        <thead>
+            <tr>
+                <th style="width: 15%">画像</th>
+                <th style="width: 10%">施設名</th>
+                <th style="width: 30%">紹介文</th>
+                <th style="width: 7%">合計料金</th>
+                <th style="width: 12%">チェックイン</th>
+                <th style="width: 13%">チェックアウト</th>
+                <th style="width: 13%">予約確定日時</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% @reservations.each do |reservation| %>
+            <tr>
+                <td>
+                    <% if reservation.room.image_room.attached? %>
+                        <%= image_tag(rails_blob_path(reservation.room.image_room),class:"img-cover-s") %>
+                    <% else %>
+                        <%= image_tag("default_room.png",class:"img-cover-s") %>
+                    <% end %>
+                </td>
+                <td>
+                    <%= link_to reservation.room,class:'link-offset-2 text-decoration-none' do %>
+                       <%= reservation.room.name %>
+                    <% end %>
+                </td>
+                <td><%= reservation.room.detail %></td>           
+                <td>¥<%= reservation.total_price %></td>
+                <td><%= l reservation.check_in,formats: :short %></td>
+                <td><%= l reservation.check_out,formats: :short %></td>
+                <td><%= l reservation.created_at,format: :long %></td>
+            </tr>
+        <% end %>
+        </tbody>
+    </table>
+</div>
